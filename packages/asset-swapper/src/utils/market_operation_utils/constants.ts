@@ -480,7 +480,6 @@ export const MAX_DODOV2_POOLS_QUERIED = 3;
 
 export const MAINNET_MAKER_PSM_CONTRACT = '0x89b78cfa322f6c5de0abceecab66aee45393cc5a';
 export const MAINNET_MAKER_PSM_AUTH_GEM = '0x0a59649758aa4d66e25f08dd01271e891fe52199';
-export const MAINNET_MAKER_PSM_VAT = '0x35d1b3f3d7966a1dfe207aa4514c12a259a0492b';
 export const MAINNET_MAKER_PSM_ILK_IDENTIFIER = formatBytes32String('PSM-USDC-A');
 // Currently only USDC is supported
 export const MAINNET_MAKER_PSM_GEM_TOKEN = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48';

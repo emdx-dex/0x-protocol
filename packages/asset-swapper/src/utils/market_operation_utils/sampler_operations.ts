@@ -24,7 +24,6 @@ import {
     MAINNET_MAKER_PSM_CONTRACT,
     MAINNET_MAKER_PSM_GEM_TOKEN,
     MAINNET_MAKER_PSM_ILK_IDENTIFIER,
-    MAINNET_MAKER_PSM_VAT,
     MAINNET_MOONISWAP_REGISTRY,
     MAINNET_MOONISWAP_V2_1_REGISTRY,
     MAINNET_MOONISWAP_V2_REGISTRY,
@@ -1258,7 +1257,6 @@ export class SamplerOperations {
                         case ERC20BridgeSource.MakerPsm:
                             return this.getMakerPsmSellQuotes(
                                 {
-                                    vatAddress: MAINNET_MAKER_PSM_VAT,
                                     psmAddress: MAINNET_MAKER_PSM_CONTRACT,
                                     ilkIdentifier: MAINNET_MAKER_PSM_ILK_IDENTIFIER,
                                     gemTokenAddress: MAINNET_MAKER_PSM_GEM_TOKEN,
@@ -1469,7 +1467,6 @@ export class SamplerOperations {
                         case ERC20BridgeSource.MakerPsm:
                             return this.getMakerPsmBuyQuotes(
                                 {
-                                    vatAddress: MAINNET_MAKER_PSM_VAT,
                                     psmAddress: MAINNET_MAKER_PSM_CONTRACT,
                                     ilkIdentifier: MAINNET_MAKER_PSM_ILK_IDENTIFIER,
                                     gemTokenAddress: MAINNET_MAKER_PSM_GEM_TOKEN,
