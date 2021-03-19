@@ -8,6 +8,7 @@ import {
     MAINNET_KYBER_NETWORK_PROXY,
     MAINNET_MAKER_PSM_AUTH_GEM,
     MAINNET_MAKER_PSM_CONTRACT,
+    MAINNET_MAKER_PSM_GEM_TOKEN,
     MAINNET_MSTABLE_ROUTER,
     MAINNET_OASIS_ROUTER,
     MAINNET_UNISWAP_V1_ROUTER,
@@ -212,11 +213,13 @@ export function createBridgeDataForBridgeOrder(order: OptimizedMarketBridgeOrder
             bridgeData = encoder.encode([MAINNET_MSTABLE_ROUTER]);
             break;
         case ERC20BridgeSource.MakerPsm:
-            const psmFillData = (order as OptimizedMarketBridgeOrder<MakerPsmFillData>).fillData;
+            // const psmFillData = (order as OptimizedMarketBridgeOrder<MakerPsmFillData>).fillData;
             bridgeData = encoder.encode([
                 MAINNET_MAKER_PSM_CONTRACT,
                 MAINNET_MAKER_PSM_AUTH_GEM,
-                psmFillData.gemTokenAddress,
+                MAINNET_MAKER_PSM_GEM_TOKEN,
+                // TODO(kimpers): Any point in passing this as fill data?
+                // psmFillData.gemTokenAddress,
             ]);
             break;
         default:

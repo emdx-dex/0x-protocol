@@ -176,9 +176,8 @@ export interface MultiHopFillData extends FillData {
     secondHopSource: SourceQuoteOperation;
     intermediateToken: string;
 }
-export interface MakerPsmFillData extends FillData {
-    gemTokenAddress: string;
-}
+export interface MakerPsmFillData extends FillData {}
+
 export interface HopInfo {
     sourceIndex: BigNumber;
     returnData: string;
