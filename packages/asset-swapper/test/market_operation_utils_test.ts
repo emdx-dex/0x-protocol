@@ -65,6 +65,7 @@ const DEFAULT_EXCLUDED = [
     ERC20BridgeSource.LiquidityProvider,
     ERC20BridgeSource.CryptoCom,
     ERC20BridgeSource.Linkswap,
+    ERC20BridgeSource.MakerPsm,
 ];
 const BUY_SOURCES = BUY_SOURCE_FILTER.sources;
 const SELL_SOURCES = SELL_SOURCE_FILTER.sources;
@@ -298,6 +299,7 @@ describe('MarketOperationUtils tests', () => {
         [ERC20BridgeSource.DodoV2]: _.times(NUM_SAMPLES, () => 0),
         [ERC20BridgeSource.CryptoCom]: _.times(NUM_SAMPLES, () => 0),
         [ERC20BridgeSource.Linkswap]: _.times(NUM_SAMPLES, () => 0),
+        [ERC20BridgeSource.MakerPsm]: _.times(NUM_SAMPLES, () => 0),
     };
 
     const DEFAULT_RATES: RatesBySource = {
@@ -360,6 +362,7 @@ describe('MarketOperationUtils tests', () => {
         [ERC20BridgeSource.DodoV2]: {},
         [ERC20BridgeSource.CryptoCom]: { tokenAddressPath: [] },
         [ERC20BridgeSource.Linkswap]: { tokenAddressPath: [] },
+        [ERC20BridgeSource.MakerPsm]: {},
     };
 
     const DEFAULT_OPS = {

@@ -129,6 +129,7 @@ export enum BridgeSource {
     UniswapV2,
     DodoV2,
     Linkswap,
+    MakerPsm,
 }
 
 /**

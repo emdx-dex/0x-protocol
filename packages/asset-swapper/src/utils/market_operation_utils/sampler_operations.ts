@@ -21,6 +21,10 @@ import {
     MAINNET_DODOV2_PRIVATE_POOL_FACTORY,
     MAINNET_DODOV2_VENDING_MACHINE_FACTORY,
     MAINNET_LINKSWAP_ROUTER,
+    MAINNET_MAKER_PSM_CONTRACT,
+    MAINNET_MAKER_PSM_GEM_TOKEN,
+    MAINNET_MAKER_PSM_ILK_IDENTIFIER,
+    MAINNET_MAKER_PSM_VAT,
     MAINNET_MOONISWAP_REGISTRY,
     MAINNET_MOONISWAP_V2_1_REGISTRY,
     MAINNET_MOONISWAP_V2_REGISTRY,
@@ -49,8 +53,10 @@ import {
     KyberFillData,
     LiquidityProviderFillData,
     LiquidityProviderRegistry,
+    MakerPsmFillData,
     MooniswapFillData,
     MultiHopFillData,
+    PsmInfo,
     ShellFillData,
     SnowSwapFillData,
     SnowSwapInfo,
@@ -951,6 +957,34 @@ export class SamplerOperations {
         });
     }
 
+    public getMakerPsmSellQuotes(
+        psmInfo: PsmInfo,
+        makerToken: string,
+        takerToken: string,
+        takerFillAmounts: BigNumber[],
+    ): SourceQuoteOperation<MakerPsmFillData> {
+        return new SamplerContractOperation({
+            source: ERC20BridgeSource.MakerPsm,
+            contract: this._samplerContract,
+            function: this._samplerContract.sampleSellsFromMakerPsm,
+            params: [psmInfo, takerToken, makerToken, takerFillAmounts],
+        });
+    }
+
+    public getMakerPsmBuyQuotes(
+        psmInfo: PsmInfo,
+        makerToken: string,
+        takerToken: string,
+        makerFillAmounts: BigNumber[],
+    ): SourceQuoteOperation<MakerPsmFillData> {
+        return new SamplerContractOperation({
+            source: ERC20BridgeSource.MakerPsm,
+            contract: this._samplerContract,
+            function: this._samplerContract.sampleBuysFromMakerPsm,
+            params: [psmInfo, takerToken, makerToken, makerFillAmounts],
+        });
+    }
+
     public getMedianSellRate(
         sources: ERC20BridgeSource[],
         makerToken: string,
@@ -1221,6 +1255,18 @@ export class SamplerOperations {
                                 );
                             });
                             return linkOps;
+                        case ERC20BridgeSource.MakerPsm:
+                            return this.getMakerPsmSellQuotes(
+                                {
+                                    vatAddress: MAINNET_MAKER_PSM_VAT,
+                                    psmAddress: MAINNET_MAKER_PSM_CONTRACT,
+                                    ilkIdentifier: MAINNET_MAKER_PSM_ILK_IDENTIFIER,
+                                    gemTokenAddress: MAINNET_MAKER_PSM_GEM_TOKEN,
+                                },
+                                makerToken,
+                                takerToken,
+                                takerFillAmounts,
+                            );
                         default:
                             throw new Error(`Unsupported sell sample source: ${source}`);
                     }
@@ -1420,6 +1466,18 @@ export class SamplerOperations {
                                 );
                             });
                             return linkOps;
+                        case ERC20BridgeSource.MakerPsm:
+                            return this.getMakerPsmBuyQuotes(
+                                {
+                                    vatAddress: MAINNET_MAKER_PSM_VAT,
+                                    psmAddress: MAINNET_MAKER_PSM_CONTRACT,
+                                    ilkIdentifier: MAINNET_MAKER_PSM_ILK_IDENTIFIER,
+                                    gemTokenAddress: MAINNET_MAKER_PSM_GEM_TOKEN,
+                                },
+                                makerToken,
+                                takerToken,
+                                makerFillAmounts,
+                            );
                         default:
                             throw new Error(`Unsupported buy sample source: ${source}`);
                     }

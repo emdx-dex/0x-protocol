@@ -6,6 +6,8 @@ import { AssetSwapperContractAddresses, MarketOperation } from '../../types';
 import {
     MAINNET_DODO_HELPER,
     MAINNET_KYBER_NETWORK_PROXY,
+    MAINNET_MAKER_PSM_AUTH_GEM,
+    MAINNET_MAKER_PSM_CONTRACT,
     MAINNET_MSTABLE_ROUTER,
     MAINNET_OASIS_ROUTER,
     MAINNET_UNISWAP_V1_ROUTER,
@@ -23,6 +25,7 @@ import {
     ERC20BridgeSource,
     KyberFillData,
     LiquidityProviderFillData,
+    MakerPsmFillData,
     MooniswapFillData,
     MultiHopFillData,
     NativeCollapsedFill,
@@ -100,6 +103,8 @@ export function getERC20BridgeSourceToBridgeSource(source: ERC20BridgeSource): B
             return BridgeSource.Kyber;
         case ERC20BridgeSource.LiquidityProvider:
             return BridgeSource.LiquidityProvider;
+        case ERC20BridgeSource.MakerPsm:
+            return BridgeSource.MakerPsm;
         case ERC20BridgeSource.Mooniswap:
             return BridgeSource.Mooniswap;
         case ERC20BridgeSource.MStable:
@@ -206,6 +211,14 @@ export function createBridgeDataForBridgeOrder(order: OptimizedMarketBridgeOrder
         case ERC20BridgeSource.MStable:
             bridgeData = encoder.encode([MAINNET_MSTABLE_ROUTER]);
             break;
+        case ERC20BridgeSource.MakerPsm:
+            const psmFillData = (order as OptimizedMarketBridgeOrder<MakerPsmFillData>).fillData;
+            bridgeData = encoder.encode([
+                MAINNET_MAKER_PSM_CONTRACT,
+                MAINNET_MAKER_PSM_AUTH_GEM,
+                psmFillData.gemTokenAddress,
+            ]);
+            break;
         default:
             throw new Error(AggregationError.NoBridgeForSource);
     }
@@ -244,6 +257,11 @@ const curveEncoder = AbiEncoder.create([
     { name: 'exchangeFunctionSelector', type: 'bytes4' },
     { name: 'fromTokenIdx', type: 'int128' },
     { name: 'toTokenIdx', type: 'int128' },
+]);
+const MakerPsmEncoder = AbiEncoder.create([
+    { name: 'psmAddress', type: 'address' },
+    { name: 'authGemAddress', type: 'address' },
+    { name: 'gemTokenAddress', type: 'address' },
 ]);
 const routerAddressPathEncoder = AbiEncoder.create('(address,address[])');
 const tokenAddressEncoder = AbiEncoder.create([{ name: 'tokenAddress', type: 'address' }]);
@@ -289,6 +307,8 @@ export const BRIDGE_ENCODERS: {
     [ERC20BridgeSource.Balancer]: poolEncoder,
     [ERC20BridgeSource.Cream]: poolEncoder,
     [ERC20BridgeSource.Uniswap]: poolEncoder,
+    // Custom integrations
+    [ERC20BridgeSource.MakerPsm]: MakerPsmEncoder,
 };
 
 function getFillTokenAmounts(fill: CollapsedFill, side: MarketOperation): [BigNumber, BigNumber] {
