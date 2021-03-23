@@ -59,12 +59,14 @@ const DEFAULT_EXCLUDED = [
     ERC20BridgeSource.SushiSwap,
     ERC20BridgeSource.MultiHop,
     ERC20BridgeSource.Shell,
+    ERC20BridgeSource.Component,
     ERC20BridgeSource.Cream,
     ERC20BridgeSource.Dodo,
     ERC20BridgeSource.DodoV2,
     ERC20BridgeSource.LiquidityProvider,
     ERC20BridgeSource.CryptoCom,
     ERC20BridgeSource.Linkswap,
+    ERC20BridgeSource.Smoothy,
 ];
 const BUY_SOURCES = BUY_SOURCE_FILTER.sources;
 const SELL_SOURCES = SELL_SOURCE_FILTER.sources;
@@ -293,11 +295,13 @@ describe('MarketOperationUtils tests', () => {
         [ERC20BridgeSource.SushiSwap]: _.times(NUM_SAMPLES, () => 0),
         [ERC20BridgeSource.MultiHop]: _.times(NUM_SAMPLES, () => 0),
         [ERC20BridgeSource.Shell]: _.times(NUM_SAMPLES, () => 0),
+        [ERC20BridgeSource.Component]: _.times(NUM_SAMPLES, () => 0),
         [ERC20BridgeSource.Cream]: _.times(NUM_SAMPLES, () => 0),
         [ERC20BridgeSource.Dodo]: _.times(NUM_SAMPLES, () => 0),
         [ERC20BridgeSource.DodoV2]: _.times(NUM_SAMPLES, () => 0),
         [ERC20BridgeSource.CryptoCom]: _.times(NUM_SAMPLES, () => 0),
         [ERC20BridgeSource.Linkswap]: _.times(NUM_SAMPLES, () => 0),
+        [ERC20BridgeSource.Smoothy]: _.times(NUM_SAMPLES, () => 0),
     };
 
     const DEFAULT_RATES: RatesBySource = {
@@ -349,12 +353,21 @@ describe('MarketOperationUtils tests', () => {
             fromTokenIdx: 0,
             toTokenIdx: 1,
         },
+        [ERC20BridgeSource.Smoothy]: {
+            pool: {
+                poolAddress: randomAddress(),
+                tokens: [TAKER_TOKEN, MAKER_TOKEN],
+            },
+            fromTokenIdx: 0,
+            toTokenIdx: 1,
+        },
         [ERC20BridgeSource.LiquidityProvider]: { poolAddress: randomAddress() },
         [ERC20BridgeSource.SushiSwap]: { tokenAddressPath: [] },
         [ERC20BridgeSource.Mooniswap]: { poolAddress: randomAddress() },
         [ERC20BridgeSource.Native]: { order: new LimitOrder() },
         [ERC20BridgeSource.MultiHop]: {},
         [ERC20BridgeSource.Shell]: { poolAddress: randomAddress() },
+        [ERC20BridgeSource.Component]: { poolAddress: randomAddress() },
         [ERC20BridgeSource.Cream]: { poolAddress: randomAddress() },
         [ERC20BridgeSource.Dodo]: {},
         [ERC20BridgeSource.DodoV2]: {},

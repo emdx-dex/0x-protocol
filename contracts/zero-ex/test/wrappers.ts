@@ -88,6 +88,7 @@ export * from '../test/generated-wrappers/mixin_m_stable';
 export * from '../test/generated-wrappers/mixin_mooniswap';
 export * from '../test/generated-wrappers/mixin_oasis';
 export * from '../test/generated-wrappers/mixin_shell';
+export * from '../test/generated-wrappers/mixin_smoothy';
 export * from '../test/generated-wrappers/mixin_sushiswap';
 export * from '../test/generated-wrappers/mixin_uniswap';
 export * from '../test/generated-wrappers/mixin_uniswap_v2';

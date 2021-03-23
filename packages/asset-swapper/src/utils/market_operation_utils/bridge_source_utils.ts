@@ -2,14 +2,16 @@ import { BigNumber, NULL_BYTES } from '@0x/utils';
 
 import {
     KYBER_BRIDGED_LIQUIDITY_PREFIX,
+    MAINNET_COMPONENT_POOLS,
     MAINNET_CURVE_INFOS,
     MAINNET_SHELL_POOLS,
+    MAINNET_SMOOTHY_POOLS,
     MAINNET_SNOWSWAP_INFOS,
     MAINNET_SWERVE_INFOS,
     MAX_DODOV2_POOLS_QUERIED,
     MAX_KYBER_RESERVES_QUERIED,
 } from './constants';
-import { CurveInfo, SnowSwapInfo, SwerveInfo } from './types';
+import { CurveInfo, SmoothyInfo, SnowSwapInfo, SwerveInfo } from './types';
 
 /**
  * Filter Kyber reserves which should not be used (0xbb bridged reserves)
@@ -43,6 +45,13 @@ export function getShellsForPair(takerToken: string, makerToken: string): string
 }
 
 // tslint:disable completed-docs
+export function getComponentsForPair(takerToken: string, makerToken: string): string[] {
+    return Object.values(MAINNET_COMPONENT_POOLS)
+        .filter(c => [makerToken, takerToken].every(t => c.tokens.includes(t)))
+        .map(i => i.poolAddress);
+}
+
+// tslint:disable completed-docs
 export function getCurveInfosForPair(takerToken: string, makerToken: string): CurveInfo[] {
     return Object.values(MAINNET_CURVE_INFOS).filter(c =>
         [makerToken, takerToken].every(
@@ -53,6 +62,7 @@ export function getCurveInfosForPair(takerToken: string, makerToken: string): Cu
     );
 }
 
+// tslint:disable completed-docs
 export function getSwerveInfosForPair(takerToken: string, makerToken: string): SwerveInfo[] {
     return Object.values(MAINNET_SWERVE_INFOS).filter(c =>
         [makerToken, takerToken].every(
@@ -63,6 +73,7 @@ export function getSwerveInfosForPair(takerToken: string, makerToken: string): S
     );
 }
 
+// tslint:disable completed-docs
 export function getSnowSwapInfosForPair(takerToken: string, makerToken: string): SnowSwapInfo[] {
     return Object.values(MAINNET_SNOWSWAP_INFOS).filter(c =>
         [makerToken, takerToken].every(
@@ -71,4 +82,10 @@ export function getSnowSwapInfosForPair(takerToken: string, makerToken: string):
                 (c.tokens.includes(t) && c.metaToken !== undefined && [makerToken, takerToken].includes(c.metaToken)),
         ),
     );
+}
+
+// tslint:disable completed-docs
+export function getSmoothyInfosForPair(takerToken: string, makerToken: string): SmoothyInfo[] {
+    return Object.values(MAINNET_SMOOTHY_POOLS)
+        .filter(c => [makerToken, takerToken].every(t => c.tokens.includes(t)));
 }

@@ -35,6 +35,7 @@ import "./mixins/MixinMStable.sol";
 import "./mixins/MixinOasis.sol";
 import "./mixins/MixinShell.sol";
 import "./mixins/MixinSushiswap.sol";
+import "./mixins/MixinSmoothy.sol";
 import "./mixins/MixinUniswap.sol";
 import "./mixins/MixinUniswapV2.sol";
 import "./mixins/MixinZeroExBridge.sol";
@@ -54,6 +55,7 @@ contract BridgeAdapter is
     MixinOasis,
     MixinShell,
     MixinSushiswap,
+    MixinSmoothy,
     MixinUniswap,
     MixinUniswapV2,
     MixinZeroExBridge
@@ -73,6 +75,7 @@ contract BridgeAdapter is
         MixinOasis()
         MixinShell()
         MixinSushiswap()
+        MixinSmoothy()
         MixinUniswap(weth)
         MixinUniswapV2()
         MixinZeroExBridge()
@@ -186,6 +189,13 @@ contract BridgeAdapter is
             );
         } else if (order.source == BridgeSource.COFIX) {
             boughtAmount = _tradeCoFiX(
+                sellToken,
+                buyToken,
+                sellAmount,
+                order.bridgeData
+            );
+        } else if (order.source == BridgeSource.SMOOTHY) {
+            boughtAmount = _tradeSmoothy(
                 sellToken,
                 buyToken,
                 sellAmount,

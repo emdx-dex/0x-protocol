@@ -129,6 +129,8 @@ export enum BridgeSource {
     UniswapV2,
     DodoV2,
     Linkswap,
+    Smoothy,
+    // New sources should be APPENDED to this list
 }
 
 /**

@@ -58,6 +58,8 @@ export enum ERC20BridgeSource {
     DodoV2 = 'DODO_V2',
     CryptoCom = 'CryptoCom',
     Linkswap = 'Linkswap',
+    Component = 'Component',
+    Smoothy = 'Smoothy',
 }
 
 // tslint:disable: enum-naming
@@ -89,6 +91,11 @@ export interface CurveInfo {
 
 export interface SwerveInfo extends CurveInfo {}
 export interface SnowSwapInfo extends CurveInfo {}
+
+export interface SmoothyInfo {
+    poolAddress: string;
+    tokens: string[];
+}
 
 // Internal `fillData` field for `Fill` objects.
 export interface FillData {}
@@ -123,6 +130,12 @@ export interface SnowSwapFillData extends FillData {
     pool: SnowSwapInfo;
 }
 
+export interface SmoothyFillData extends FillData {
+    fromTokenIdx: number;
+    toTokenIdx: number;
+    pool: SmoothyInfo;
+}
+
 export interface BalancerFillData extends FillData {
     poolAddress: string;
 }
@@ -137,6 +150,8 @@ export interface SushiSwapFillData extends UniswapV2FillData {}
 export interface ShellFillData extends FillData {
     poolAddress: string;
 }
+
+export interface ComponentFillData extends ShellFillData {}
 
 export interface LiquidityProviderFillData extends FillData {
     poolAddress: string;
