@@ -36,6 +36,28 @@ export async function findOptimalPathAsync(
     return optimalPath.isComplete() ? optimalPath : undefined;
 }
 
+export async function findOptimalPath2Async(
+    side: MarketOperation,
+    fills: Fill[][],
+    targetInput: BigNumber,
+    runLimit: number = 2 ** 8,
+    opts: PathPenaltyOpts = DEFAULT_PATH_PENALTY_OPTS,
+): Promise<Path | undefined> {
+    // Sort fill arrays by descending adjusted completed rate.
+    const sortedPaths = fillsToSortedPaths2(fills, side, targetInput, opts);
+    if (sortedPaths.length === 0) {
+        return undefined;
+    }
+    let optimalPath = sortedPaths[0];
+    const rates = rateBySourcePathId(side, fills, targetInput);
+    for (const [i, path] of sortedPaths.slice(1).entries()) {
+        optimalPath = mixPaths(side, optimalPath, path, targetInput, runLimit * RUN_LIMIT_DECAY_FACTOR ** i, rates);
+        // Yield to event loop.
+        await Promise.resolve();
+    }
+    return optimalPath.isComplete() ? optimalPath : undefined;
+}
+
 // Sort fill arrays by descending adjusted completed rate.
 export function fillsToSortedPaths(
     fills: Fill[][],
@@ -46,6 +68,17 @@ export function fillsToSortedPaths(
     const paths = fills.map(singleSourceFills => Path.create(side, singleSourceFills, targetInput, opts));
     const sortedPaths = paths.sort((a, b) => b.adjustedCompleteRate().comparedTo(a.adjustedCompleteRate()));
     return sortedPaths;
+}
+
+export function fillsToSortedPaths2(
+    fills: Fill[][],
+    side: MarketOperation,
+    targetInput: BigNumber,
+    opts: PathPenaltyOpts,
+): Path[] {
+    const paths = fills.map(singleSourceFills => Path.create(side, singleSourceFills, targetInput, opts));
+    const sortedPaths = paths.sort((a, b) => b.adjustedCompleteRate().comparedTo(a.adjustedCompleteRate()));
+    return sortedPaths.filter(p => p.minRate().isGreaterThanOrEqualTo(sortedPaths[0].adjustedCompleteRate()));
 }
 
 function mixPaths(

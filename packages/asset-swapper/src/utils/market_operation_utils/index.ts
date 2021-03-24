@@ -535,6 +535,16 @@ export class MarketOperationUtils {
         const _unoptimizedPath = fillsToSortedPaths(fills, side, inputAmount, penaltyOpts)[0];
         const unoptimizedPath = _unoptimizedPath ? _unoptimizedPath.collapse(orderOpts) : undefined;
 
+        console.log(
+            JSON.stringify(
+                dexQuotes
+                    .filter(qs => qs && qs.length > 0)
+                    .map(qs => ({ source: qs[0].source, inputOutputs: qs.map(q => [q.input, q.output]) })),
+                null,
+                2,
+            ),
+        );
+
         // Find the optimal path
         const optimalPath = await findOptimalPathAsync(side, fills, inputAmount, opts.runLimit, penaltyOpts);
         const optimalPathRate = optimalPath ? optimalPath.adjustedRate() : ZERO_AMOUNT;

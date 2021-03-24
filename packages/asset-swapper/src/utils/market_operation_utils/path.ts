@@ -39,6 +39,7 @@ export class Path {
     public sourceFlags: number = 0;
     protected _size: PathSize = { input: ZERO_AMOUNT, output: ZERO_AMOUNT };
     protected _adjustedSize: PathSize = { input: ZERO_AMOUNT, output: ZERO_AMOUNT };
+    private _firstFill!: Fill;
 
     public static create(
         side: MarketOperation,
@@ -147,6 +148,10 @@ export class Path {
         return getCompleteRate(this.side, input, output, this.targetInput);
     }
 
+    public minRate(): BigNumber {
+        return getRate(this.side, this._firstFill.input, this._firstFill.output);
+    }
+
     public adjustedRate(): BigNumber {
         const { input, output } = this.adjustedSize();
         return getRate(this.side, input, output);
@@ -248,6 +253,9 @@ export class Path {
     }
 
     private _addFillSize(fill: Fill): void {
+        if (!this._firstFill) {
+            this._firstFill = fill;
+        }
         if (this._size.input.plus(fill.input).isGreaterThan(this.targetInput)) {
             const remainingInput = this.targetInput.minus(this._size.input);
             const scaledFillOutput = fill.output.times(remainingInput.div(fill.input));
