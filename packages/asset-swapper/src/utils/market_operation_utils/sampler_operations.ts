@@ -8,15 +8,16 @@ import { ERC20BridgeSamplerContract } from '../../wrappers';
 import { BalancerPoolsCache } from './balancer_utils';
 import { BancorService } from './bancor_service';
 import {
+    getComponentsForPair,
     getCurveInfosForPair,
     getDodoV2Offsets,
     getKyberOffsets,
+    getShellsForPair,
     getSmoothyInfosForPair,
     getSnowSwapInfosForPair,
     getSwerveInfosForPair,
     isAllowedKyberReserveId,
 } from './bridge_source_utils';
-import { getComponentsForPair } from './component_utils';
 import {
     LIQUIDITY_PROVIDER_REGISTRY,
     MAINNET_CRYPTO_COM_ROUTER,
@@ -36,7 +37,6 @@ import { CreamPoolsCache } from './cream_utils';
 import { getLiquidityProvidersForPair } from './liquidity_provider_utils';
 import { getIntermediateTokens } from './multihop_utils';
 import { SamplerContractOperation } from './sampler_contract_operation';
-import { getShellsForPair } from './shell_utils';
 import { SourceFilters } from './source_filters';
 import {
     BalancerFillData,

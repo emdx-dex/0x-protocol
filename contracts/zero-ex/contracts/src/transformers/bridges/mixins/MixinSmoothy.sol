@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: Apache-2.0
-
 /*
 
   Copyright 2021 ZeroEx Intl.
@@ -21,7 +20,6 @@
 pragma solidity ^0.6.5;
 pragma experimental ABIEncoderV2;
 
-import "@0x/contracts-utils/contracts/src/v06/errors/LibRichErrorsV06.sol";
 import "@0x/contracts-erc20/contracts/src/v06/LibERC20TokenV06.sol";
 import "@0x/contracts-erc20/contracts/src/v06/IERC20TokenV06.sol";
 import "@0x/contracts-utils/contracts/src/v06/LibSafeMathV06.sol";
@@ -40,6 +38,7 @@ interface ISmoothy {
 contract MixinSmoothy {
 
     using LibERC20TokenV06 for IERC20TokenV06;
+    using LibSafeMathV06 for uint256;
 
     struct SmoothyBridgeData {
         address poolAddress;
@@ -74,6 +73,6 @@ contract MixinSmoothy {
             1
         );
 
-        return buyToken.balanceOf(address(this)) - beforeBalance; // TODO: Use safeSub?
+        return buyToken.balanceOf(address(this)).safeSub(beforeBalance);
     }
 }
