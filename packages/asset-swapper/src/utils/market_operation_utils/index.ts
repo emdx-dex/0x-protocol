@@ -544,6 +544,10 @@ export class MarketOperationUtils {
                 2,
             ),
         );
+        console.log({
+            takerAmountPerEth,
+            makerAmountPerEth,
+        });
 
         // Find the optimal path
         const optimalPath = await findOptimalPathAsync(side, fills, inputAmount, opts.runLimit, penaltyOpts);

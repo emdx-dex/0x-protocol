@@ -148,6 +148,7 @@ export class Path {
         return getCompleteRate(this.side, input, output, this.targetInput);
     }
 
+    // The rate of the first fill, i.e the rate when selling a fraction of the entire amount
     public minRate(): BigNumber {
         return getRate(this.side, this._firstFill.input, this._firstFill.output);
     }

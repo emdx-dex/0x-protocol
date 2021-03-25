@@ -7,14 +7,27 @@ import {
     randomAddress,
     toBaseUnitAmount,
 } from '@0x/contracts-test-utils';
+import { Web3Wrapper } from '@0x/dev-utils';
 import { FillQuoteTransformerOrderType, LimitOrderFields, SignatureType } from '@0x/protocol-utils';
 import { BigNumber, hexUtils, NULL_ADDRESS } from '@0x/utils';
 import { Pool } from '@balancer-labs/sor/dist/types';
 import * as _ from 'lodash';
 
+import {
+    DEFAULT_TOKEN_ADJACENCY_GRAPH_BY_CHAIN_ID,
+    ERC20BridgeSamplerContract,
+    SELL_SOURCE_FILTER_BY_CHAIN_ID,
+} from '../src';
 import { SignedOrder } from '../src/types';
 import { DexOrderSampler, getSampleAmounts } from '../src/utils/market_operation_utils/sampler';
-import { ERC20BridgeSource, TokenAdjacencyGraph } from '../src/utils/market_operation_utils/types';
+import { SourceFilters } from '../src/utils/market_operation_utils/source_filters';
+import {
+    BatchedOperation,
+    DexSample,
+    ERC20BridgeSource,
+    FillData,
+    TokenAdjacencyGraph,
+} from '../src/utils/market_operation_utils/types';
 
 import { MockBalancerPoolsCache } from './utils/mock_balancer_pools_cache';
 import { MockSamplerContract } from './utils/mock_sampler_contract';
@@ -728,6 +741,66 @@ describe('DexSampler tests', () => {
             );
             expect(fillableMakerAmounts).to.deep.eq(expectedFillableMakerAmounts);
             expect(fillableTakerAmounts).to.deep.eq(expectedFillableTakerAmounts);
+        });
+    });
+
+    describe.only('perf', () => {
+        const DUMMY_PROVIDER = {
+            sendAsync: (..._args: any[]): any => {
+                /* no-op */
+            },
+        };
+        const ITERS = 500;
+        const TIMEOUT = 120000;
+        const SAMPLER = new DexOrderSampler(
+            chainId,
+            new ERC20BridgeSamplerContract(NULL_ADDRESS, DUMMY_PROVIDER, {}),
+            undefined,
+            undefined,
+            undefined,
+            DEFAULT_TOKEN_ADJACENCY_GRAPH_BY_CHAIN_ID[chainId],
+            undefined,
+            () => Promise.resolve(undefined),
+        );
+        const performTestAsync = async (
+            takerToken: string,
+            makerToken: string,
+            sampleAmounts: BigNumber[],
+            sources: ERC20BridgeSource[],
+        ) => {
+            const timeBefore = Date.now();
+            let sellQuotes: BatchedOperation<Array<Array<DexSample<FillData>>>>;
+            for (let i = 0; i < ITERS; i++) {
+                sellQuotes = SAMPLER.getSellQuotes(sources, takerToken, makerToken, sampleAmounts);
+                sellQuotes.encodeCall();
+            }
+            console.log(
+                `old: ${Date.now() - timeBefore}ms ${new BigNumber(
+                    ITERS / ((Date.now() - timeBefore) / 1000),
+                ).decimalPlaces(2)} encodes/s`,
+            );
+        };
+
+        [1, 13, 26].forEach(numSamples => {
+            describe(`${numSamples} SAMPLES`, () => {
+                it('DAI/USDC 1M', async () => {
+                    await performTestAsync(
+                        '0x6b175474e89094c44da98b954eedeac495271d0f',
+                        '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+                        getSampleAmounts(Web3Wrapper.toBaseUnitAmount(1000000, 18), numSamples, 1.05),
+                        SELL_SOURCE_FILTER_BY_CHAIN_ID[chainId].sources,
+                    );
+                }).timeout(TIMEOUT);
+
+                it('ETH/USDC 1000', async () => {
+                    await performTestAsync(
+                        '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
+                        '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+                        getSampleAmounts(Web3Wrapper.toBaseUnitAmount(1000, 18), numSamples, 1.05),
+                        SELL_SOURCE_FILTER_BY_CHAIN_ID[chainId].sources,
+                    );
+                }).timeout(TIMEOUT);
+            });
         });
     });
 });

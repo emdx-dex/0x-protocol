@@ -78,7 +78,13 @@ export function fillsToSortedPaths2(
 ): Path[] {
     const paths = fills.map(singleSourceFills => Path.create(side, singleSourceFills, targetInput, opts));
     const sortedPaths = paths.sort((a, b) => b.adjustedCompleteRate().comparedTo(a.adjustedCompleteRate()));
-    return sortedPaths.filter(p => p.minRate().isGreaterThanOrEqualTo(sortedPaths[0].adjustedCompleteRate()));
+    // Any path which has a min rate that is less than the best adjusted completed rate has no chance of improving
+    // the overall route.
+    const culledPaths = sortedPaths.filter(p =>
+        p.minRate().isGreaterThanOrEqualTo(sortedPaths[0].adjustedCompleteRate()),
+    );
+    // console.log({ sortedPaths: sortedPaths.length, culledPaths: culledPaths.length });
+    return culledPaths;
 }
 
 function mixPaths(
