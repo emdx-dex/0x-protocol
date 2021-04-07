@@ -2,7 +2,7 @@ import { IChaiContract } from '@0x/contracts-asset-proxy';
 import { artifacts as devUtilsArtifacts, DevUtilsContract } from '@0x/contracts-dev-utils';
 import { ERC20TokenContract } from '@0x/contracts-erc20';
 import { blockchainTests, constants, expect } from '@0x/contracts-test-utils';
-import { assetDataUtils } from '@0x/order-utils';
+import { assetDataUtils } from '@emdx-dex/order-utils';
 import { Web3Wrapper } from '@0x/web3-wrapper';
 
 import { contractAddresses } from '../mainnet_fork_utils';

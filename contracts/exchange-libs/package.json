@@ -83,7 +83,7 @@
         "@0x/base-contract": "^6.2.18",
         "@0x/contracts-test-utils": "^5.3.24",
         "@0x/contracts-utils": "^4.7.6",
-        "@0x/order-utils": "^10.4.19",
+        "@emdx-dex/order-utils": "^10.4.19-1",
         "@0x/types": "^3.3.1",
         "@0x/typescript-typings": "^5.1.6",
         "@0x/utils": "^6.2.0",

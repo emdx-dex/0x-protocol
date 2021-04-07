@@ -16,7 +16,7 @@ import {
     getRandomInteger,
     Numberish,
 } from '@0x/contracts-test-utils';
-import { orderHashUtils } from '@0x/order-utils';
+import { orderHashUtils } from '@emdx-dex/order-utils';
 import { Order } from '@0x/types';
 import { BigNumber, fromTokenUnitAmount, logUtils } from '@0x/utils';
 import { DecodedLogEntry } from 'ethereum-types';

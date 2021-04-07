@@ -1,4 +1,4 @@
-import { ContractAddresses, getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { ContractAddresses, getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import {
     artifacts as assetProxyArtifacts,
     ERC1155ProxyContract,
@@ -105,6 +105,7 @@ export async function runMigrationsAsync(
         txDefaults,
         allArtifacts,
     );
+    const etherTokenAddress = "0xd00ae08403B9bbb9124bB305C09058E32C39A48c";
 
     // Exchange
     const exchange = await ExchangeContract.deployFrom0xArtifactAsync(
@@ -251,7 +252,7 @@ export async function runMigrationsAsync(
         provider,
         txDefaults,
         allArtifacts,
-        etherToken.address,
+        etherTokenAddress,
         zrxVault.address,
     );
 
@@ -288,7 +289,7 @@ export async function runMigrationsAsync(
         allArtifacts,
         exchange.address,
         exchangeV2Address || NULL_ADDRESS,
-        etherToken.address,
+        etherTokenAddress,
     );
 
     // JAM
@@ -311,7 +312,7 @@ export async function runMigrationsAsync(
         provider,
         txDefaults,
         allArtifacts,
-        etherToken.address,
+        etherTokenAddress,
     );
 
     const exchangeProxy = await fullMigrateExchangeProxyAsync(txDefaults.from, provider, txDefaults);
@@ -323,7 +324,7 @@ export async function runMigrationsAsync(
         provider,
         txDefaults,
         allArtifacts,
-        etherToken.address,
+        etherTokenAddress,
     );
     const payTakerTransformer = await PayTakerTransformerContract.deployFrom0xArtifactAsync(
         exchangeProxyArtifacts.PayTakerTransformer,
@@ -356,7 +357,7 @@ export async function runMigrationsAsync(
         erc721Proxy: erc721Proxy.address,
         erc1155Proxy: erc1155Proxy.address,
         zrxToken: zrxToken.address,
-        etherToken: etherToken.address,
+        etherToken: etherTokenAddress,
         exchange: exchange.address,
         assetProxyOwner: NULL_ADDRESS,
         erc20BridgeProxy: erc20BridgeProxy.address,

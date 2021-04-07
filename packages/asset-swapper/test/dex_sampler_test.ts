@@ -1,4 +1,4 @@
-import { ChainId, getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { ChainId, getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import {
     constants,
     expect,

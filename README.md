@@ -44,9 +44,9 @@ These packages are all under development. See [/contracts/README.md](/contracts/
 
 | Package                                                  | Version                                                                                                                 | Description                                                                                    |
 | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| [`@0x/contract-addresses`](/packages/contract-addresses) | [![npm](https://img.shields.io/npm/v/@0x/contract-addresses.svg)](https://www.npmjs.com/package/@0x/contract-addresses) | A tiny utility library for getting known deployed contract addresses for a particular network. |
-| [`@0x/contract-wrappers`](/packages/contract-wrappers)   | [![npm](https://img.shields.io/npm/v/@0x/contract-wrappers.svg)](https://www.npmjs.com/package/@0x/contract-wrappers)   | JS/TS wrappers for interacting with the 0x smart contracts                                     |
-| [`@0x/order-utils`](/packages/order-utils)               | [![npm](https://img.shields.io/npm/v/@0x/order-utils.svg)](https://www.npmjs.com/package/@0x/order-utils)               | A set of utilities for generating, parsing, signing and validating 0x orders                   |
+| [`@emdx-dex/contract-addresses`](/packages/contract-addresses) | [![npm](https://img.shields.io/npm/v/@emdx-dex/contract-addresses.svg)](https://www.npmjs.com/package/@emdx-dex/contract-addresses) | A tiny utility library for getting known deployed contract addresses for a particular network. |
+| [`@emdx-dex/contract-wrappers`](/packages/contract-wrappers)   | [![npm](https://img.shields.io/npm/v/@emdx-dex/contract-wrappers.svg)](https://www.npmjs.com/package/@emdx-dex/contract-wrappers)   | JS/TS wrappers for interacting with the 0x smart contracts                                     |
+| [`@emdx-dex/order-utils`](/packages/order-utils)               | [![npm](https://img.shields.io/npm/v/@emdx-dex/order-utils.svg)](https://www.npmjs.com/package/@emdx-dex/order-utils)               | A set of utilities for generating, parsing, signing and validating 0x orders                   |
 | [`@0x/migrations`](/packages/migrations)                 | [![npm](https://img.shields.io/npm/v/@0x/migrations.svg)](https://www.npmjs.com/package/@0x/migrations)                 | Migration tool for deploying 0x smart contracts on private testnets                            |
 | [`@0x/contract-artifacts`](/packages/contract-artifacts) | [![npm](https://img.shields.io/npm/v/@0x/contract-artifacts.svg)](https://www.npmjs.com/package/@0x/contract-artifacts) | 0x smart contract compilation artifacts                                                        |  |
 
@@ -92,7 +92,7 @@ yarn build
 To build a specific package:
 
 ```bash
-PKG=@0x/contract-wrappers yarn build
+PKG=@emdx-dex/contract-wrappers yarn build
 ```
 
 To build all contracts packages:
@@ -115,7 +115,7 @@ To watch a specific package and all it's dependent packages:
 PKG=[NPM_PACKAGE_NAME] yarn watch
 
 e.g
-PKG=@0x/contract-wrappers yarn watch
+PKG=@emdx-dex/contract-wrappers yarn watch
 ```
 
 ### Clean
@@ -143,7 +143,7 @@ yarn rebuild
 To re-build (clean & build) a specific package & it's deps:
 
 ```bash
-PKG=@0x/contract-wrappers yarn rebuild
+PKG=@emdx-dex/contract-wrappers yarn rebuild
 ```
 
 ### Lint
@@ -157,7 +157,7 @@ yarn lint
 Lint a specific package:
 
 ```bash
-PKG=@0x/contract-wrappers yarn lint
+PKG=@emdx-dex/contract-wrappers yarn lint
 ```
 
 ### Run Tests
@@ -171,7 +171,7 @@ yarn test
 Run a specific package's test:
 
 ```bash
-PKG=@0x/contract-wrappers yarn test
+PKG=@emdx-dex/contract-wrappers yarn test
 ```
 
 Run all contracts packages tests:

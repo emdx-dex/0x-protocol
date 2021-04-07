@@ -1,4 +1,4 @@
-import { ContractAddresses } from '@0x/contract-addresses';
+import { ContractAddresses } from '@emdx-dex/contract-addresses';
 import { BigNumber } from '@0x/utils';
 
 export enum ForwarderError {

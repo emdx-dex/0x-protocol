@@ -209,7 +209,7 @@ CHANGELOG
 
 ## v4.3.2 - _September 17, 2019_
 
-    * Removed dependency on @0x/order-utils (#2096)
+    * Removed dependency on @emdx-dex/order-utils (#2096)
 
 ## v4.3.1 - _September 3, 2019_
 

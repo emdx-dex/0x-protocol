@@ -1,4 +1,4 @@
-## @0x/contract-wrappers
+## @emdx-dex/contract-wrappers
 
 Wrappers for 0x smart contracts, generated using @0x/abi-gen.
 
@@ -7,13 +7,13 @@ Wrappers for 0x smart contracts, generated using @0x/abi-gen.
 **Install**
 
 ```bash
-npm install @0x/contract-wrappers --save
+npm install @emdx-dex/contract-wrappers --save
 ```
 
 **Import**
 
 ```typescript
-import { ContractWrappers } from '@0x/contract-wrappers';
+import { ContractWrappers } from '@emdx-dex/contract-wrappers';
 ```
 
 If your project is in [TypeScript](https://www.typescriptlang.org/), add the following to your `tsconfig.json`:
@@ -49,7 +49,7 @@ yarn install
 To build this package and all other monorepo packages that it depends on, run the following from the monorepo root directory:
 
 ```bash
-PKG=@0x/contract-wrappers yarn build
+PKG=@emdx-dex/contract-wrappers yarn build
 ```
 
 ### Clean

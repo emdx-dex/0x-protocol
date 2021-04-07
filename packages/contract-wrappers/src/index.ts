@@ -6,7 +6,7 @@ export {
     SendTransactionOpts,
     SubscriptionErrors,
 } from '@0x/base-contract';
-export { ContractAddresses } from '@0x/contract-addresses';
+export { ContractAddresses } from '@emdx-dex/contract-addresses';
 export {
     DecodedLogEvent,
     EventCallback,

@@ -1,4 +1,4 @@
-import { ContractWrappers } from '@0x/contract-wrappers';
+import { ContractWrappers } from '@emdx-dex/contract-wrappers';
 import { ERC20ProxyContract, MultiAssetProxyContract } from '@0x/contracts-asset-proxy';
 import { StakingProxyContract, ZrxVaultContract } from '@0x/contracts-staking';
 import { blockchainTests, describe, expect } from '@0x/contracts-test-utils';

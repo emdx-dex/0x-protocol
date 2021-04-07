@@ -8,7 +8,7 @@ import {
 import { DummyERC20TokenContract } from '@0x/contracts-erc20';
 import { LibMathRevertErrors } from '@0x/contracts-exchange-libs';
 import { blockchainTests, constants, describe, expect, toBaseUnitAmount } from '@0x/contracts-test-utils';
-import { SignedOrder } from '@0x/order-utils';
+import { SignedOrder } from '@emdx-dex/order-utils';
 import { BigNumber, decodeThrownErrorAsRevertError, StringRevertError } from '@0x/utils';
 import { DecodedLogArgs, LogWithDecodedArgs } from 'ethereum-types';
 import * as _ from 'lodash';

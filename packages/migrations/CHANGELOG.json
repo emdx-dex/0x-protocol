@@ -526,7 +526,7 @@
         "version": "4.3.2",
         "changes": [
             {
-                "note": "Removed dependency on @0x/order-utils",
+                "note": "Removed dependency on @emdx-dex/order-utils",
                 "pr": 2096
             }
         ],

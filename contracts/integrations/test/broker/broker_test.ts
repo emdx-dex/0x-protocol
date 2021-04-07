@@ -12,7 +12,7 @@ import { DummyERC721TokenContract } from '@0x/contracts-erc721';
 import { ExchangeFunctionName, ExchangeRevertErrors } from '@0x/contracts-exchange';
 import { ReferenceFunctions } from '@0x/contracts-exchange-libs';
 import { blockchainTests, constants, expect, getRandomInteger, randomAddress } from '@0x/contracts-test-utils';
-import { assetDataUtils } from '@0x/order-utils';
+import { assetDataUtils } from '@emdx-dex/order-utils';
 import { SignedOrder } from '@0x/types';
 import { BigNumber } from '@0x/utils';
 import { TransactionReceiptWithDecodedLogs } from 'ethereum-types';

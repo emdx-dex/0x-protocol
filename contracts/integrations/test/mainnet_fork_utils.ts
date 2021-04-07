@@ -1,5 +1,5 @@
-import { getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
-import { ContractWrappers } from '@0x/contract-wrappers';
+import { getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
+import { ContractWrappers } from '@emdx-dex/contract-wrappers';
 import { Web3ProviderEngine } from '@0x/dev-utils';
 
 const chainId = 1;

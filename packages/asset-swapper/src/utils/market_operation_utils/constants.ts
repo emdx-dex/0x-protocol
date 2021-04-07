@@ -1,4 +1,4 @@
-import { ChainId } from '@0x/contract-addresses';
+import { ChainId } from '@emdx-dex/contract-addresses';
 import { FillQuoteTransformerOrderType } from '@0x/protocol-utils';
 import { BigNumber } from '@0x/utils';
 import { formatBytes32String } from '@ethersproject/strings';
@@ -50,6 +50,8 @@ function valueByChainId<T>(rest: Partial<{ [key in ChainId]: T }>, defaultValue:
         [ChainId.Kovan]: defaultValue,
         [ChainId.Ganache]: defaultValue,
         [ChainId.BSC]: defaultValue,
+        [ChainId.AvaxMainnet]: defaultValue,
+        [ChainId.AvaxFuji]: defaultValue,
         ...(rest || {}),
     };
 }
@@ -99,6 +101,8 @@ export const SELL_SOURCE_FILTER_BY_CHAIN_ID = valueByChainId<SourceFilters>(
             ERC20BridgeSource.PancakeSwap,
             ERC20BridgeSource.SushiSwap,
         ]),
+        [ChainId.AvaxMainnet]: new SourceFilters([ERC20BridgeSource.Native]),
+        [ChainId.AvaxFuji]: new SourceFilters([ERC20BridgeSource.Native]),
     },
 
     new SourceFilters([]),
@@ -149,6 +153,8 @@ export const BUY_SOURCE_FILTER_BY_CHAIN_ID = valueByChainId<SourceFilters>(
             ERC20BridgeSource.PancakeSwap,
             ERC20BridgeSource.SushiSwap,
         ]),
+        [ChainId.AvaxMainnet]: new SourceFilters([ERC20BridgeSource.Native]),
+        [ChainId.AvaxFuji]: new SourceFilters([ERC20BridgeSource.Native]),
     },
     new SourceFilters([]),
 );

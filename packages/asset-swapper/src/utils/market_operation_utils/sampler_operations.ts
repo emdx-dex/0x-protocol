@@ -1,4 +1,4 @@
-import { ChainId } from '@0x/contract-addresses';
+import { ChainId } from '@emdx-dex/contract-addresses';
 import { LimitOrderFields } from '@0x/protocol-utils';
 import { BigNumber } from '@0x/utils';
 import * as _ from 'lodash';

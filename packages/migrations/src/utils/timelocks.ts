@@ -1,4 +1,4 @@
-import { getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import { ExchangeContract } from '@0x/contracts-exchange';
 import { StakingContract, StakingProxyContract, ZrxVaultContract } from '@0x/contracts-staking';
 import { IAuthorizableContract, IOwnableContract } from '@0x/contracts-utils';

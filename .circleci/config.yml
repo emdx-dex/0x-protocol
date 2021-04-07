@@ -114,9 +114,9 @@ jobs:
                       - repo-{{ .Environment.CIRCLE_SHA1 }}
             - run: yarn wsrun test:circleci @0x/contracts-test-utils
             - run: yarn wsrun test:circleci @0x/contract-artifacts
-            - run: yarn wsrun test:circleci @0x/contract-wrappers-test
+            - run: yarn wsrun test:circleci @emdx-dex/contract-wrappers-test
             - run: yarn wsrun test:circleci @0x/migrations
-            - run: yarn wsrun test:circleci @0x/order-utils
+            - run: yarn wsrun test:circleci @emdx-dex/order-utils
             - run: yarn wsrun test:circleci @0x/asset-swapper
             - save_cache:
                   key: coverage-contract-wrappers-test-{{ .Environment.CIRCLE_SHA1 }}

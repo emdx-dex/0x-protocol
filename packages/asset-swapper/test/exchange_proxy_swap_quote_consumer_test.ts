@@ -1,4 +1,4 @@
-import { getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import { constants as contractConstants, getRandomInteger, randomAddress } from '@0x/contracts-test-utils';
 import {
     decodeAffiliateFeeTransformerData,

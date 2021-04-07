@@ -71,6 +71,6 @@ yarn test
 This package needs to be updated manually when deploying a new contract.
 Post-deployment workflow:
 
-1. Update `@0x/contract-addresses`
+1. Update `@emdx-dex/contract-addresses`
 2. Copy the contract artifact into `@0x/contract-artifacts`. If updating all the artifacts at once, you can use `yarn artifacts_update`. If manually coping an artifact, make sure to use `yarn artifacts_transform` to remove unwanted fields.
 3. Regenerate the wrappers. `cd ../contract-wrappers && yarn rebuild`

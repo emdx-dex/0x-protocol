@@ -3,7 +3,7 @@ import { DevUtilsContract } from '@0x/contracts-dev-utils';
 import { DummyERC20TokenContract } from '@0x/contracts-erc20';
 import { ExchangeContract } from '@0x/contracts-exchange';
 import { blockchainTests, constants, expect, orderHashUtils, OrderStatus } from '@0x/contracts-test-utils';
-import { assetDataUtils } from '@0x/order-utils';
+import { assetDataUtils } from '@emdx-dex/order-utils';
 import { OrderTransferResults, SignedOrder } from '@0x/types';
 import { BigNumber } from '@0x/utils';
 

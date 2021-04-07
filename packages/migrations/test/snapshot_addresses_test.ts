@@ -1,4 +1,4 @@
-import { ChainId, getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { ChainId, getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import { devConstants, web3Factory } from '@0x/dev-utils';
 import * as chai from 'chai';
 import * as dirtyChai from 'dirty-chai';

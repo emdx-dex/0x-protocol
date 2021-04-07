@@ -1,4 +1,4 @@
-import { getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import { constants } from '@0x/contracts-test-utils';
 import { RPCSubprovider, SupportedProvider, Web3ProviderEngine } from '@0x/subproviders';
 import { AbiEncoder, BigNumber, logUtils, providerUtils } from '@0x/utils';

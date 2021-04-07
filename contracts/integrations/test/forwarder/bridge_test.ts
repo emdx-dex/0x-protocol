@@ -2,7 +2,7 @@ import { encodeERC20AssetData, encodeERC20BridgeAssetData, encodeERC721AssetData
 import { DummyERC721TokenContract } from '@0x/contracts-erc721';
 import { ForwarderContract } from '@0x/contracts-exchange-forwarder';
 import { blockchainTests, constants, getLatestBlockTimestampAsync, toBaseUnitAmount } from '@0x/contracts-test-utils';
-import { generatePseudoRandomSalt } from '@0x/order-utils';
+import { generatePseudoRandomSalt } from '@emdx-dex/order-utils';
 import { SignatureType, SignedOrder } from '@0x/types';
 import { AbiEncoder, BigNumber, ExchangeForwarderRevertErrors, hexUtils } from '@0x/utils';
 

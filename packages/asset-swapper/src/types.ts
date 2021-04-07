@@ -1,5 +1,5 @@
-import { ChainId } from '@0x/contract-addresses';
-import { BlockParam, ContractAddresses, GethCallOverrides } from '@0x/contract-wrappers';
+import { ChainId } from '@emdx-dex/contract-addresses';
+import { BlockParam, ContractAddresses, GethCallOverrides } from '@emdx-dex/contract-wrappers';
 import {
     FillQuoteTransformerOrderType,
     LimitOrderFields,

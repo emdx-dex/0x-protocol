@@ -1,5 +1,5 @@
 import { blockchainTests, constants, expect, OrderStatus, orderUtils, randomAddress } from '@0x/contracts-test-utils';
-import { generatePseudoRandomSalt } from '@0x/order-utils';
+import { generatePseudoRandomSalt } from '@emdx-dex/order-utils';
 import { BigNumber, ExchangeRevertErrors, hexUtils, RevertError } from '@0x/utils';
 import * as _ from 'lodash';
 

@@ -2,7 +2,7 @@ import { encodeERC20AssetData, encodeERC20BridgeAssetData } from '@0x/contracts-
 import { ERC20TokenContract } from '@0x/contracts-erc20';
 import { ExchangeContract } from '@0x/contracts-exchange';
 import { blockchainTests, constants, expect, FillEventArgs, getRandomInteger } from '@0x/contracts-test-utils';
-import { orderHashUtils } from '@0x/order-utils';
+import { orderHashUtils } from '@emdx-dex/order-utils';
 import { Order } from '@0x/types';
 import { BigNumber, logUtils } from '@0x/utils';
 import { DecodedLogEntry } from 'ethereum-types';

@@ -1,5 +1,5 @@
 import { constants, orderUtils } from '@0x/contracts-test-utils';
-import { Order } from '@0x/order-utils';
+import { Order } from '@emdx-dex/order-utils';
 import { FillResults } from '@0x/types';
 import { BigNumber } from '@0x/utils';
 import * as _ from 'lodash';

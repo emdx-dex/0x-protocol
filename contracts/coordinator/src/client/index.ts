@@ -1,10 +1,10 @@
 import { SendTransactionOpts } from '@0x/base-contract';
-import { getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import { ExchangeContract } from '@0x/contracts-exchange';
 import { ExchangeFunctionName } from '@0x/contracts-test-utils';
 import { devConstants } from '@0x/dev-utils';
 import { schemas } from '@0x/json-schemas';
-import { generatePseudoRandomSalt, signatureUtils } from '@0x/order-utils';
+import { generatePseudoRandomSalt, signatureUtils } from '@emdx-dex/order-utils';
 import { Order, SignedOrder, SignedZeroExTransaction, ZeroExTransaction } from '@0x/types';
 import { BigNumber, fetchAsync } from '@0x/utils';
 import { Web3Wrapper } from '@0x/web3-wrapper';

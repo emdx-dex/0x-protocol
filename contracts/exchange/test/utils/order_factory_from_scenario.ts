@@ -5,7 +5,7 @@ import {
     encodeMultiAssetData,
 } from '@0x/contracts-asset-proxy';
 import { constants, ERC1155HoldingsByOwner, ERC721TokenIdsByOwner } from '@0x/contracts-test-utils';
-import { generatePseudoRandomSalt } from '@0x/order-utils';
+import { generatePseudoRandomSalt } from '@emdx-dex/order-utils';
 import { Order } from '@0x/types';
 import { BigNumber, errorUtils } from '@0x/utils';
 import * as _ from 'lodash';

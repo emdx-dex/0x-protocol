@@ -1,4 +1,4 @@
-import { ChainId } from '@0x/contract-addresses';
+import { ChainId } from '@emdx-dex/contract-addresses';
 import { BigNumber, NULL_BYTES } from '@0x/utils';
 
 import { SamplerOverrides } from '../../types';

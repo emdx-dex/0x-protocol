@@ -7,7 +7,7 @@ import {
     orderHashUtils,
     randomAddress,
 } from '@0x/contracts-test-utils';
-import { assetDataUtils } from '@0x/order-utils';
+import { assetDataUtils } from '@emdx-dex/order-utils';
 import { SignedOrder } from '@0x/types';
 import { BigNumber, StringRevertError } from '@0x/utils';
 

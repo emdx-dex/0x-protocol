@@ -18,27 +18,6 @@ export const etherTokenByChain: { [chainId: number]: { address: string } } = {
 };
 export const erc20TokenInfo: ERC20Token[] = [
     {
-        name: 'Augur Reputation Token',
-        symbol: 'REP',
-        decimals: new BigNumber(18),
-        ipfsHash: NULL_BYTES,
-        swarmHash: NULL_BYTES,
-    },
-    {
-        name: 'Dai',
-        symbol: 'DAI',
-        decimals: new BigNumber(18),
-        ipfsHash: NULL_BYTES,
-        swarmHash: NULL_BYTES,
-    },
-    {
-        name: 'Golem Network Token',
-        symbol: 'GNT',
-        decimals: new BigNumber(18),
-        ipfsHash: NULL_BYTES,
-        swarmHash: NULL_BYTES,
-    },
-    {
         name: 'MakerDAO',
         symbol: 'MKR',
         decimals: new BigNumber(18),
@@ -46,8 +25,8 @@ export const erc20TokenInfo: ERC20Token[] = [
         swarmHash: NULL_BYTES,
     },
     {
-        name: 'Melon Token',
-        symbol: 'MLN',
+        name: 'Dai Stablecoin',
+        symbol: 'DAI',
         decimals: new BigNumber(18),
         ipfsHash: NULL_BYTES,
         swarmHash: NULL_BYTES,

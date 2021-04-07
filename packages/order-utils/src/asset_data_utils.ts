@@ -1,4 +1,4 @@
-import { IAssetDataContract } from '@0x/contract-wrappers';
+import { IAssetDataContract } from '@emdx-dex/contract-wrappers';
 import {
     AssetData,
     AssetProxyId,

@@ -1,6 +1,6 @@
 {
-    "name": "@0x/order-utils",
-    "version": "10.4.19",
+    "name": "@emdx-dex/order-utils",
+    "version": "10.4.19-1",
     "engines": {
         "node": ">=6.12"
     },
@@ -10,7 +10,6 @@
     "scripts": {
         "build": "yarn tsc -b",
         "build:ci": "yarn build",
-        "publish:private": "yarn clean && yarn build && gitpkg publish",
         "test": "yarn run_mocha",
         "rebuild_and_test": "run-s build test",
         "test:circleci": "yarn test:coverage",
@@ -30,18 +29,15 @@
             "assets": []
         }
     },
-    "gitpkg": {
-        "registry": "git@github.com:0xProject/gitpkg-registry.git"
-    },
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/0xProject/protocol.git"
+        "url": "https://github.com/emdx-dex/0x-protocol.git"
     },
     "bugs": {
-        "url": "https://github.com/0xProject/protocol/issues"
+        "url": "https://github.com/emdx-dex/0x-protocol/issues"
     },
-    "homepage": "https://github.com/0xProject/protocol/tree/main/packages/order-utils",
+    "homepage": "https://github.com/emdx-dex/0x-protocol/tree/main/packages/order-utils",
     "devDependencies": {
         "@0x/dev-utils": "^4.2.1",
         "@0x/subproviders": "^6.4.1",
@@ -56,7 +52,6 @@
         "@types/web3-provider-engine": "^14.0.0",
         "chai": "^4.0.1",
         "ethereum-types": "^3.4.0",
-        "gitpkg": "https://github.com/0xProject/gitpkg.git",
         "make-promises-safe": "^1.1.0",
         "mocha": "^6.2.0",
         "npm-run-all": "^4.1.2",
@@ -69,8 +64,8 @@
     },
     "dependencies": {
         "@0x/assert": "^3.0.21",
-        "@0x/contract-addresses": "^6.0.0",
-        "@0x/contract-wrappers": "^13.15.0",
+        "@emdx-dex/contract-addresses": "^6.0.0-1",
+        "@emdx-dex/contract-wrappers": "^13.15.0-1",
         "@0x/json-schemas": "^5.4.1",
         "@0x/utils": "^6.2.0",
         "@0x/web3-wrapper": "^7.4.1",
@@ -80,6 +75,5 @@
     },
     "publishConfig": {
         "access": "public"
-    },
-    "gitHead": "4f91bfd907996b2f4dd383778b50c479c2602b56"
+    }
 }

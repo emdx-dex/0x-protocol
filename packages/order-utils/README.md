@@ -1,4 +1,4 @@
-## @0x/order-utils
+## @emdx-dex/order-utils
 
 0x order-related utilities for those developing on top of 0x protocol.
 
@@ -7,7 +7,7 @@
 ## Installation
 
 ```bash
-yarn add @0x/order-utils
+yarn add @emdx-dex/order-utils
 ```
 
 If your project is in [TypeScript](https://www.typescriptlang.org/), add the following to your `tsconfig.json`:
@@ -43,13 +43,13 @@ yarn install
 To build this package and all other monorepo packages that it depends on, run the following from the monorepo root directory:
 
 ```bash
-PKG=@0x/order-utils yarn build
+PKG=@emdx-dex/order-utils yarn build
 ```
 
 Or continuously rebuild on change:
 
 ```bash
-PKG=@0x/order-utils yarn watch
+PKG=@emdx-dex/order-utils yarn watch
 ```
 
 ### Clean

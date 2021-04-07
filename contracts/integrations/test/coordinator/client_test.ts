@@ -1,4 +1,4 @@
-import { ContractAddresses, getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { ContractAddresses, getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import { encodeERC20AssetData } from '@0x/contracts-asset-proxy';
 import { ExchangeContract } from '@0x/contracts-exchange';
 import { blockchainTests, constants, expect, OrderFactory } from '@0x/contracts-test-utils';

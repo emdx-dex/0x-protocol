@@ -4,7 +4,7 @@ export {
     ContractTxFunctionObj,
     SendTransactionOpts,
 } from '@0x/base-contract';
-export { ContractAddresses } from '@0x/contract-addresses';
+export { ContractAddresses } from '@emdx-dex/contract-addresses';
 export { V4RFQFirmQuote, V4RFQIndicativeQuote, V4SignedRfqOrder, TakerRequestQueryParams } from '@0x/quote-server';
 export { Asset, AssetPairsItem, DecodedLogEvent, EventCallback, IndexedFilterValues } from '@0x/types';
 export { BigNumber } from '@0x/utils';

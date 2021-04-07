@@ -1,4 +1,4 @@
-import { eip712Utils } from '@0x/order-utils';
+import { eip712Utils } from '@emdx-dex/order-utils';
 import { SignedZeroExTransaction } from '@0x/types';
 import { hexUtils, signTypedDataUtils } from '@0x/utils';
 
