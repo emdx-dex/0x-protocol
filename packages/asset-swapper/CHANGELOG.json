@@ -1,5 +1,43 @@
 [
     {
+        "version": "6.6.0",
+        "changes": [
+            {
+                "note": "Support `Ropsten` network",
+                "pr": 203
+            }
+        ],
+        "timestamp": 1618592834
+    },
+    {
+        "version": "6.5.3",
+        "changes": [
+            {
+                "note": "Apply slippage to bridge orders in consumer",
+                "pr": 198
+            }
+        ],
+        "timestamp": 1618433771
+    },
+    {
+        "timestamp": 1618314654,
+        "version": "6.5.2",
+        "changes": [
+            {
+                "note": "Dependencies updated"
+            }
+        ]
+    },
+    {
+        "timestamp": 1618259868,
+        "version": "6.5.1",
+        "changes": [
+            {
+                "note": "Dependencies updated"
+            }
+        ]
+    },
+    {
         "version": "6.5.0",
         "changes": [
             {
