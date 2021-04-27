@@ -1,6 +1,6 @@
 {
     "name": "@emdx-dex/order-utils",
-    "version": "10.4.19-1",
+    "version": "10.4.19-2",
     "engines": {
         "node": ">=6.12"
     },
@@ -64,8 +64,8 @@
     },
     "dependencies": {
         "@0x/assert": "^3.0.21",
-        "@emdx-dex/contract-addresses": "^6.0.0-1",
-        "@emdx-dex/contract-wrappers": "^13.15.0-1",
+        "@emdx-dex/contract-addresses": "^6.0.0-2",
+        "@emdx-dex/contract-wrappers": "^13.15.0-2",
         "@0x/json-schemas": "^5.4.1",
         "@0x/utils": "^6.2.0",
         "@0x/web3-wrapper": "^7.4.1",

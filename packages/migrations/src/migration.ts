@@ -105,7 +105,9 @@ export async function runMigrationsAsync(
         txDefaults,
         allArtifacts,
     );
-    const etherTokenAddress = "0xd00ae08403B9bbb9124bB305C09058E32C39A48c";
+
+    // WRBTC: https://github.com/Think-and-Dev/wrbtc
+    const etherTokenAddress = "0x09b6ca5e4496238a1f176aea6bb607db96c2286e";
 
     // Exchange
     const exchange = await ExchangeContract.deployFrom0xArtifactAsync(

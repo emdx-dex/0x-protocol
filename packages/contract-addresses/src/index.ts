@@ -51,6 +51,8 @@ export enum ChainId {
     BSC = 56,
     AvaxMainnet = 43114,
     AvaxFuji = 43113,
+    RSKMainnet = 30,
+    RSKTestnet = 31,
 }
 
 /**

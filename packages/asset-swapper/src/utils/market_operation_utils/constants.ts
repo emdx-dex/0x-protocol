@@ -52,6 +52,8 @@ function valueByChainId<T>(rest: Partial<{ [key in ChainId]: T }>, defaultValue:
         [ChainId.BSC]: defaultValue,
         [ChainId.AvaxMainnet]: defaultValue,
         [ChainId.AvaxFuji]: defaultValue,
+        [ChainId.RSKMainnet]: defaultValue,
+        [ChainId.RSKTestnet]: defaultValue,
         ...(rest || {}),
     };
 }
@@ -114,6 +116,8 @@ export const SELL_SOURCE_FILTER_BY_CHAIN_ID = valueByChainId<SourceFilters>(
         ]),
         [ChainId.AvaxMainnet]: new SourceFilters([ERC20BridgeSource.Native]),
         [ChainId.AvaxFuji]: new SourceFilters([ERC20BridgeSource.Native]),
+        [ChainId.RSKMainnet]: new SourceFilters([ERC20BridgeSource.Native]),
+        [ChainId.RSKTestnet]: new SourceFilters([ERC20BridgeSource.Native]),
     },
 
     new SourceFilters([]),
@@ -177,6 +181,8 @@ export const BUY_SOURCE_FILTER_BY_CHAIN_ID = valueByChainId<SourceFilters>(
         ]),
         [ChainId.AvaxMainnet]: new SourceFilters([ERC20BridgeSource.Native]),
         [ChainId.AvaxFuji]: new SourceFilters([ERC20BridgeSource.Native]),
+        [ChainId.RSKMainnet]: new SourceFilters([ERC20BridgeSource.Native]),
+        [ChainId.RSKTestnet]: new SourceFilters([ERC20BridgeSource.Native]),
     },
     new SourceFilters([]),
 );

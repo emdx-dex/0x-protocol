@@ -18,15 +18,43 @@ export const etherTokenByChain: { [chainId: number]: { address: string } } = {
 };
 export const erc20TokenInfo: ERC20Token[] = [
     {
-        name: 'MakerDAO',
-        symbol: 'MKR',
+        name: 'BPro',
+        symbol: 'BPRO',
         decimals: new BigNumber(18),
         ipfsHash: NULL_BYTES,
         swarmHash: NULL_BYTES,
     },
     {
-        name: 'Dai Stablecoin',
-        symbol: 'DAI',
+        name: 'BTCx',
+        symbol: 'BTCx',
+        decimals: new BigNumber(18),
+        ipfsHash: NULL_BYTES,
+        swarmHash: NULL_BYTES,
+    },
+    {
+        name: 'MoC',
+        symbol: 'MoC Governance',
+        decimals: new BigNumber(18),
+        ipfsHash: NULL_BYTES,
+        swarmHash: NULL_BYTES,
+    },
+    {
+        name: 'Rif',
+        symbol: 'RIF',
+        decimals: new BigNumber(18),
+        ipfsHash: NULL_BYTES,
+        swarmHash: NULL_BYTES,
+    },
+    {
+        name: 'DoC Stablecoin',
+        symbol: 'DOC',
+        decimals: new BigNumber(18),
+        ipfsHash: NULL_BYTES,
+        swarmHash: NULL_BYTES,
+    },
+    {
+        name: 'iEMDX',
+        symbol: 'EMDX internal token',
         decimals: new BigNumber(18),
         ipfsHash: NULL_BYTES,
         swarmHash: NULL_BYTES,
