@@ -46,8 +46,12 @@ export enum ChainId {
     Mainnet = 1,
     Ropsten = 3,
     Rinkeby = 4,
+    RSKMainnet = 30,
+    RSKTestnet = 31,
     Kovan = 42,
     Ganache = 1337,
+    AvaxMainnet = 43114,
+    AvaxFuji = 43113
 }
 
 /**

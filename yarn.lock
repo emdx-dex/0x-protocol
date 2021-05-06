@@ -736,6 +736,11 @@
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/@0x/contract-addresses/-/contract-addresses-4.12.0.tgz#2adb0bcde763ad13437f782adf25c403107ff428"
 
+"@0x/contract-addresses@^5.8.0":
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/@0x/contract-addresses/-/contract-addresses-5.11.0.tgz#eeaf7617559f7e65741140776f9528b76d1e992e"
+  integrity sha512-Sbf4EClM/wAOdhd8f9l7aiTBDrK1ZAg+u4nw21+VsQHOi85JbUFhLEFaVcZWFL2fuTB6NWd0Htut9Y4+XZRMYw==
+
 "@0x/contracts-gen@^2.0.24":
   version "2.0.24"
   resolved "https://registry.yarnpkg.com/@0x/contracts-gen/-/contracts-gen-2.0.24.tgz#494c0867bab7681ebd1de56fe435b7366c1ef39b"
