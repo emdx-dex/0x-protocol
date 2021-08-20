@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import {
     ERC1155ProxyContract,
     ERC20ProxyContract,

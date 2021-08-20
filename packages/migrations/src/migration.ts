@@ -1,4 +1,4 @@
-import { ContractAddresses, getContractAddressesForChainOrThrow } from '@0x/contract-addresses';
+import { ContractAddresses, getContractAddressesForChainOrThrow } from '@emdx-dex/contract-addresses';
 import {
     artifacts as assetProxyArtifacts,
     ERC1155ProxyContract,
