@@ -491,6 +491,10 @@ export const BRIDGE_ADDRESSES_BY_CHAIN: { [chainId in ChainId]: BridgeContractAd
     [ChainId.Rinkeby]: EMPTY_BRIDGE_ADDRESSES,
     [ChainId.Ropsten]: EMPTY_BRIDGE_ADDRESSES,
     [ChainId.Ganache]: EMPTY_BRIDGE_ADDRESSES,
+    [ChainId.Rsk]: EMPTY_BRIDGE_ADDRESSES,
+    [ChainId.Bamboo]: EMPTY_BRIDGE_ADDRESSES,
+    [ChainId.Avalanche]: EMPTY_BRIDGE_ADDRESSES,
+    [ChainId.Fuji]: EMPTY_BRIDGE_ADDRESSES,
 };
 
 /**
